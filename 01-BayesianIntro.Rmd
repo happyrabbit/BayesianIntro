@@ -23,6 +23,14 @@ knitr::opts_chunk$set(echo = FALSE)
 - Bayes is sampling theory + priors
 - Priors are uniquely subjective
 
+## Conceptual friction
+
+- Thinking data must look like likelihood function
+- Degrees of freedom
+- “Sampling” as source of all uncertainty
+- Defining random effects via sampling design
+- Neglect of data uncertainty
+
 ## Bayesian data analysis
 
 - Contrast with frequentist view
@@ -32,6 +40,11 @@ knitr::opts_chunk$set(echo = FALSE)
 - Bayesian probability much more general
     - Probability is in the small world
     - Coins are not random, but our ignorance makes them so
+
+## Another path
+
+- Claim: Bayes easier and more powerful when understood from the inside
+- Problem: Many insider views
 
 ## Small and Large Worlds
 
