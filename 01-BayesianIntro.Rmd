@@ -9,6 +9,20 @@ output: slidy_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+## Outside view
+
+> _Likelihood function: In statistics, a likelihood function is a function of parameters of a statistical model given data. Likelihood functions play a key role in statistical inference, especially methods of estimating a parameter from a set of statistics. In informal contexts, "likelihood" is often used as a synonym for "probability". In statistics, a distinction is made depending on the roles of outcomes vs. parameters. Probability is used before data are available to describe possible future outcomes given a fixed value for the parameter. Likelihood is used after data are available to describe a function of a parameter for given outcome. [Wikipedia]_
+
+## Outside view
+
+- Data have distributions
+- Parameters do not
+- Distinguish _parameters_ and _statistics_
+- Likelihood is not a probability distribution
+- Imaginary _population_
+- Bayes is sampling theory + priors
+- Priors are uniquely subjective
+
 ## Bayesian data analysis
 
 - Contrast with frequentist view
