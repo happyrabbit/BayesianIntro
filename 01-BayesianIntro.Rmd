@@ -1,0 +1,82 @@
+---
+title: "Introduction to Bayesian"
+author: "Hui Lin"
+date: "`r Sys.Date()`"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Bayesian data analysis
+
+- Contrast with frequentist view
+    - Probability is just limiting frequency
+    - Uncertainty arises from sampling variation
+
+- Bayesian probability much more general
+    - Probability is in the small world
+    - Coins are not random, but our ignorance makes them so
+
+## Small and Large Worlds
+
+<img style="float: right;" src="images/columbo.png" height="350">
+
+- **Small world**: the world under the model's assumptions. Bayesian models are optimal, in the small world
+- **Larger world**: the real world. No guarantee of optimality for any kind of model
+- Have to worry about both
+
+## Garden of Forking Data
+
+- The future:
+    - Full of branching paths
+    - Each choice closes some
+
+- The data:
+    - Many possible events
+    - Each observation eliminates some
+
+## Garden of Forking Data
+
+![](images/garden.png){width=80%}
+
+## Garden of Forking Data
+
+![](images/garden1.png){width=80%}
+
+## Garden of Forking Data
+
+![](images/garden2.png){width=80%}
+
+## Garden of Forking Data
+
+![](images/garden3.png){width=80%}
+
+## Garden of Forking Data
+
+![](images/garden4.png){width=80%}
+
+## Garden of Forking Data
+
+![](images/garden5.png){width=60%}
+
+## Garden of Forking Data
+
+![](images/garden6.png){width=65%}
+
+## 
+
+![](images/garden7.png){width=80%}
+
+## 
+
+![](images/garden8.png){width=80%}
+
+## 
+
+![](images/garden9.png){width=80%}
+
+## 
+
+![](images/garden10.png){width=80%}
