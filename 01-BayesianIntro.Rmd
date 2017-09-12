@@ -216,8 +216,6 @@ class: center
 
 ![](images/garden14.png)
 
-### H T H H H T H T H
-
 ???
 Let's go back to the most boring thing statisticians do: toss a coin
 
@@ -240,7 +238,7 @@ To get the logic moving, we need to make assumptions, and these assumptions cons
 
 - How do the data arise?
 
-- For  H T H H H T H T H:
+- For  [H T H H H T H T H]:
 
     - Some real property of the coin: "H" shows up with probability p; "T" with 1-p 
     
