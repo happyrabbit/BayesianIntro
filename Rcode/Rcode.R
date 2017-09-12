@@ -1,3 +1,4 @@
+# Bayesian Update
 # define grid
 p_grid <- seq( from=0 , to=1 , length.out=100 )
 # define prior
