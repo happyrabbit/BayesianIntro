@@ -1,6 +1,10 @@
-# Bayesian Update
+##--------------------- Bayesian Update
+
 # define grid
 p_grid <- seq( from=0 , to=1 , length.out=100 )
+
+par(mfrow = c(3,3))
+##-------------------- Obs 1
 # define prior
 prior1 <- rep( 1 , 100 )
 # compute likelihood at each value in grid
@@ -9,24 +13,109 @@ likelihood1 <- dbinom( 1 , size=1 , prob=p_grid )
 unstd.posterior1 <- likelihood1 * prior1
 # standardize the posterior, so it sums to 1
 posterior1 <- unstd.posterior1 / sum(unstd.posterior1)
-
-plot(p_grid, posterior1, type="l", ylab = "plausibility", xlab="", labels=F, tick =F)
+plot(p_grid, posterior1, type="l", ylab = "", xlab="", 
+     labels=F, tick =F,main = "H")
 lines(p_grid, prior1-0.99,lty=2)
 axis(side = 1, labels = T)
 
-## update
-# compute likelihood at each value in grid
+##------------------- Obs 2
 likelihood2 <- dbinom( 0 , size=1 , prob=p_grid )
 # compute product of likelihood and prior
 unstd.posterior2 <- likelihood2 * posterior1
 # standardize the posterior, so it sums to 1
 posterior2 <- unstd.posterior2 / sum(unstd.posterior2)
 
-plot(p_grid, posterior2, type="l", ylab = "plausibility", xlab="", labels=F, tick =F, ylim=c(0,0.03))
+plot(p_grid, posterior2, type="l", ylab = "", xlab="", 
+     labels=F, tick =F, ylim=c(0,0.03),main = "HT")
 lines(p_grid, posterior1,lty=2)
-axis(side = 1, labels = T)
+axis(side = 1, labels = T )
 
 
-plot( p_grid , posterior , type="b" ,
-      xlab="probability of water" , ylab="posterior probability" )
-mtext( "20 points" )
+##------------------- Obs 3
+likelihood3 <- dbinom( 1 , size=1 , prob=p_grid )
+# compute product of likelihood and prior
+unstd.posterior3 <- likelihood3 * posterior2
+# standardize the posterior, so it sums to 1
+posterior3 <- unstd.posterior3 / sum(unstd.posterior3)
+
+plot(p_grid, posterior3, type="l", ylab = "", xlab="", 
+     labels=F, tick =F, ylim=c(0,0.03),main = "HTH")
+lines(p_grid, posterior2,lty=2)
+axis(side = 1, labels = T )
+
+
+##------------------- Obs 4
+likelihood4 <- dbinom( 1 , size=1 , prob=p_grid )
+# compute product of likelihood and prior
+unstd.posterior4 <- likelihood4 * posterior3
+# standardize the posterior, so it sums to 1
+posterior4 <- unstd.posterior4 / sum(unstd.posterior4)
+
+plot(p_grid, posterior4, type="l", ylab = "", xlab="", 
+     labels=F, tick =F, ylim=c(0,0.03),main = "HTHH")
+lines(p_grid, posterior3,lty=2)
+axis(side = 1, labels = T )
+
+
+##------------------- Obs 5
+likelihood5 <- dbinom( 1 , size=1 , prob=p_grid )
+# compute product of likelihood and prior
+unstd.posterior5 <- likelihood5 * posterior4
+# standardize the posterior, so it sums to 1
+posterior5 <- unstd.posterior5 / sum(unstd.posterior5)
+
+plot(p_grid, posterior5, type="l", ylab = "", xlab="", 
+     labels=F, tick =F, ylim=c(0,0.03),main = "HTHHH")
+lines(p_grid, posterior4,lty=2)
+axis(side = 1, labels = T )
+
+
+##------------------- Obs 6
+likelihood6 <- dbinom( 0 , size=1 , prob=p_grid )
+# compute product of likelihood and prior
+unstd.posterior6 <- likelihood6 * posterior5
+# standardize the posterior, so it sums to 1
+posterior6 <- unstd.posterior6 / sum(unstd.posterior6)
+
+plot(p_grid, posterior6, type="l", ylab = "", xlab="", 
+     labels=F, tick =F, ylim=c(0,0.03),main = "HTHHHT")
+lines(p_grid, posterior5,lty=2)
+axis(side = 1, labels = T )
+
+##------------------- Obs 7
+likelihood7 <- dbinom( 1 , size=1 , prob=p_grid )
+# compute product of likelihood and prior
+unstd.posterior7 <- likelihood7 * posterior6
+# standardize the posterior, so it sums to 1
+posterior7 <- unstd.posterior7 / sum(unstd.posterior7)
+
+plot(p_grid, posterior7, type="l", ylab = "", xlab="", 
+     labels=F, tick =F, ylim=c(0,0.03),main = "HTHHHTH")
+lines(p_grid, posterior6,lty=2)
+axis(side = 1, labels = T )
+
+##------------------- Obs 8
+likelihood8 <- dbinom( 0 , size=1 , prob=p_grid )
+# compute product of likelihood and prior
+unstd.posterior8 <- likelihood8 * posterior7
+# standardize the posterior, so it sums to 1
+posterior8 <- unstd.posterior8 / sum(unstd.posterior8)
+
+plot(p_grid, posterior8, type="l", ylab = "", xlab="", 
+     labels=F, tick =F, ylim=c(0,0.03),main = "HTHHHTHT")
+lines(p_grid, posterior7,lty=2)
+axis(side = 1, labels = T )
+
+##------------------- Obs 9
+likelihood9 <- dbinom( 1 , size=1 , prob=p_grid )
+# compute product of likelihood and prior
+unstd.posterior9 <- likelihood9 * posterior8
+# standardize the posterior, so it sums to 1
+posterior9 <- unstd.posterior9 / sum(unstd.posterior9)
+
+plot(p_grid, posterior9, type="l", ylab = "", xlab="", 
+     labels=F, tick =F, ylim=c(0,0.03),main = "HTHHHTHTH")
+lines(p_grid, posterior8,lty=2)
+axis(side = 1, labels = T )
+
+mtext("plausibility",2, line = 1,outer =T)
