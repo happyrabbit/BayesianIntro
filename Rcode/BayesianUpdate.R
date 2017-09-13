@@ -3,7 +3,7 @@
 # define grid
 p_grid <- seq( from=0 , to=1 , length.out=100 )
 
-par(mfrow = c(3,3))
+par(mfrow = c(3,3),mar=c(2,1,2,1))
 ##-------------------- Obs 1
 # define prior
 prior1 <- rep( 1 , 100 )

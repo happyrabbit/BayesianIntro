@@ -4,7 +4,7 @@
     <title>Introduction to Bayesian</title>
     <meta charset="utf-8">
     <meta name="author" content="Hui Lin" />
-    <meta name="date" content="2017-09-11" />
+    <meta name="date" content="2017-09-13" />
     <link href="libs/remark-css-0.0.1/example.css" rel="stylesheet" />
   </head>
   <body>
@@ -13,7 +13,7 @@ class: center, middle, inverse, title-slide
 
 # Introduction to Bayesian
 ### Hui Lin
-### 2017-09-11
+### 2017-09-13
 
 ---
 
@@ -221,8 +221,6 @@ class: center
 
 ![](images/garden14.png)
 
-### H T H H H T H T H
-
 ???
 Let's go back to the most boring thing statisticians do: toss a coin
 
@@ -245,7 +243,7 @@ To get the logic moving, we need to make assumptions, and these assumptions cons
 
 - How do the data arise?
 
-- For  H T H H H T H T H:
+- For  [H T H H H T H T H]:
 
     - Some real property of the coin: "H" shows up with probability p; "T" with 1-p 
     
@@ -262,6 +260,154 @@ To get the logic moving, we need to make assumptions, and these assumptions cons
     - Give your model an information state, before the data: here, we are confident that p is between 0 and 1
     
     - Condition on data to update information state: new confidence in each value of p, conditional on data
+
+---
+class: center, middle
+
+&lt;img src="images/BY_Update.png" alt="Drawing" style="height: 600px;"/&gt;
+
+---
+
+# Bayesian Updating 
+
+&lt;img style="float: right;" src="images/BY_Update.png" height="350"&gt;
+
+- Data order irrelevant (model assumption)
+
+      - All-at-once = one-at-a-time = shuffled order
+      
+- Every posterior is a prior for next observation
+
+- Every prior is posterior of some other inference
+
+.footnote[
+[1] R Code: https://github.com/happyrabbit/BayesianIntro
+]
+
+---
+
+# Evaluate
+
+- Bayesian inference: Logical answer to question in the form of a model
+
+-  Evaluate:
+
+    - Did the model malfunction?
+    
+    - Is the answer reasonable?
+    
+    - Does the question make sense?
+    
+    - Check sensitivity of answer to changes in assumptions
+
+---
+
+# Model Components
+
+- Given:
+
+    1. Likelihood
+
+    1. Parameters
+
+    1. Prior
+
+- Deduce: Posterior
+
+---
+
+# Likelihood
+
+- Pr(data|assumptions)
+
+    - Defines probability of each observation, conditional "|" on assumptions
+
+    - i.e. relative count of number of ways of seeing data, given a particular conjecture
+
+- In this example, binomial probability:
+
+    `$$Pr(n_H| n, p) = \frac{n!}{n_{H}!(n-n_{H})!} p^{n_{H}} (1-p)^{n-n_{H}}$$`
+
+    ```r
+    dbinom(6, size = 9, prob = 0.5)
+    ## [1] 0.1640625
+    ```
+---
+
+# Parameters
+
+- Likelihood contains symbols: `\(n_{H}, n, p\)`
+
+- Some are data: `\((n_{H}, n)\)`
+
+- Others parameters `\((p)\)`
+
+    - Define targets of inference, what is updated
+
+    - These were the conjectures in the bag example
+
+- Which are data and which parameters depend upon your context and questions
+
+---
+
+# Prior
+
+- What do we believe before the data?
+
+- Likelihood &amp; prior define the model's perspective on the data
+
+- Tossing coin example, a uniform (flat) prior
+
+    `$$Pr(p)=\frac{1}{1-0} = 1$$`
+
+--
+
+- Huge literature on choice of prior
+
+- Flat prior is conventional, but hardly ever best choice
+
+    - Always know something (before data) that can improve inference
+    
+    - Are zero and one plausible values for `\(p\)`? Is `\(p&lt;0.5\)` as plausible as `\(p&gt;0.5\)`?
+
+    - Don't need to get it exactly right; just need to improve
+    
+---
+
+
+# Posterior
+
+- Bayesian estimate is always posterior distribution over parameters, Pr(parameter|data)
+
+- Here: `\(Pr(p|n_{H})\)`
+
+- Compute using Bayes' theorem:
+
+    `$$Pr(p|n_H)=\frac{Pr(n_H|P)Pr(p)}{Pr(n_H)}$$`
+    `$$Posterior = \frac{Likelihood \times Prior}{Average\ Likelihood}$$`
+    
+---
+class: center, middle
+
+#### Posterior is prior conditioned on evidence 
+ 
+&lt;img src="images/PP.png" alt="Drawing" style="height: 600px;"/&gt;
+
+---
+
+# Computing the posterior
+
+1. Analytical approach (often impossible)
+
+1. Grid approximation (very intensive)
+
+1. Quadratic approximation (approximate)
+
+1. Markov Chain Monte Carlo (intensive)
+
+---
+
+# Grid approximation
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
