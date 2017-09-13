@@ -408,6 +408,40 @@ class: center, middle
 ---
 
 # Grid approximation
+
+- The posterior is:
+_standardized product of the likelihood and prior_
+
+- Gird approximation uses _finite grid_ of parameter values instead of continuous space
+
+```r
+lth &lt;- 10
+p_grid &lt;- seq( from=0 , to=1 , length.out=lth )
+# define prior
+prior &lt;- rep( 1 , lth )
+# compute likelihood at each value in grid
+likelihood &lt;- dbinom( 6 , size=9 , prob=p_grid )
+# compute product of likelihood and prior
+unstd.posterior &lt;- likelihood * prior
+# standardize the posterior, so it sums to 1
+posterior &lt;- unstd.posterior / sum(unstd.posterior)
+
+plot(p_grid, posterior, type="b", ylab = "", xlab="", 
+     labels=F, tick =F,main = paste("Grid length =", lth))
+axis(side = 1, labels = T )
+```
+
+---
+
+# Quadratic approximation
+
+- Assume posterior is normally distributed
+
+- Can estimate with two numbers (mean, standard deviation)
+
+- Lots of algorithms
+
+- With flat priors, same as conventional _maximum likelihood estimation_
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
