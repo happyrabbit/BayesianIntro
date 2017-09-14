@@ -51,8 +51,15 @@ class: inverse, center, middle
 
 - Degrees of freedom
 
+
 - Sampling as source of all uncertainty (Bootstrap, the magic!?)
-    - Estimate any aspect of the distribution of any quantity computed from data $\mathbf{Z}=(z_1,\dots, z_N)$ with $z_i=(x_i, y_i)$
+
+    - "To lift himself up by his bootstraps"
+    
+    - B. Efron (1979)
+
+    - Estimate any aspect of the distribution of any quantity computed from data $\mathbf{Z}=(z_1,\dots, z_N)$ with $z_i=(x_i, y_i)$ (for example: $y_i \in {0,1}$)
+    
     - Estimate prediction error: Pr{observation i $\in$ sample b}
 
 <!--
