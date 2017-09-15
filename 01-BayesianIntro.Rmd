@@ -51,7 +51,6 @@ class: inverse, center, middle
 
 - Degrees of freedom
 
-
 - Sampling as source of all uncertainty (Bootstrap, the magic!?)
 
     - "To lift himself up by his bootstraps"
@@ -82,6 +81,12 @@ class: inverse, center, middle
 - Claim: Bayes easier and more powerful when understood from the inside
 
 - Problem: Many insider views
+
+???
+
+Bayesian probability is a very general approach to probability, and it includes as a special case another important approach, the frequentist approach. The frequentist approach requires that all probabilities be defined by connection to countable events and their frequencies in very large samples. This leads to frequentist uncertainty being premised on imaginary resampling of data---if we were to repeat the measurement many many times, we would end up collecting a list of values that will have some pattern to it. It also means that parameters and models cannot have probability distributions, only measurements can. The distribution of these measurements is called a sampling distribution. 
+
+Nothing is the real world is actually random. We just use randomness to describe our uncertainty in the face of incomplete knowledge. 
 
 ---
 
